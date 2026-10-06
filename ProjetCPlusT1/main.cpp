@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-//#include "Event.h"
+#include "Event.h"
 
 // Quelques conseils avant de commencer...
 // * N'oubliez pas de tracer (cout << ...) tous les constructeurs et le destructeur !!! Ca, c'est pas un conseil,
@@ -15,68 +15,6 @@ using namespace std;
 // * Une fois que tout le programme compile et fonctionne correctement, creez le .h contenant la declaration
 //   de la classe, le .cpp contenant la definition des methodes, et ensuite le makefile permettant de compiler
 //   le tout grace a la commande make 
-class Event
-{
-private:
-  int code;
-  char* title;
-
-public:
-  Event(){
-    code = 0;
-    title = new char[21];
-    strcpy(title, "Sans titre");
-    cout << "--- constructeur par defaut ---" << endl;
-  }
-
-  Event(int c, const char* t){
-    code = c;
-    title = new char[strlen(t) + 1];
-    strcpy(title, t);
-    cout << "--- Constructeur d'initialisation ---" << endl;
-  }
-
-  Event(const Event& event2){
-    code = event2.code;
-    title = new char[strlen(event2.title) + 1];
-    strcpy(title, event2.title);
-    cout << "--- Constucteur de copie ---" << endl;
-  }
-
-  ~Event(){
-    cout << "--- Destructeur d'Event ---" << endl;
-    delete[] title;
-  }
-
-  void display(){
-    cout << "Code : " << code << endl;
-    cout << "Title : " << title << endl;
-  }
-
-  void setCode(int c){
-    if(c <= 0) return;
-    code = c;
-  }
-
-  void setTitle(const char*t){
-    if(strlen(t) == 0) return;
-    if(strlen(t) != strlen(title))
-    {
-      delete[] title;
-      title = new char[strlen(t) + 1];
-    }
-    strcpy(title, t);
-  }
-
-  int getCode(){
-    return code;
-  }
-  
-  char* getTitle(){
-    return title;
-  }
-};
-
 
 int main()
 {
