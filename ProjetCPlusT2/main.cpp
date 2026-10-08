@@ -68,8 +68,7 @@ void Essai1()
     instant.display();
     cout << endl;
   }
-}
-/*
+
   cout << endl << "(2) **** Test des setters/getters **********************************************" << endl;
   {
     Time instant;
@@ -81,7 +80,7 @@ void Essai1()
     cout << endl << "heure : " << instant.getHour() << endl;
     cout << "Minute : " << instant.getMinute() << endl;
   }
-
+  
   cout << endl << "(3) ***** Test du constructeur d'initialisation de Time (instant) **************" << endl;
   {
     Time instant(8,5);
