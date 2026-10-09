@@ -4,18 +4,24 @@
 #include <string>
 #include "Time.h"
 
+
 class Timing
 {
 private:
-	string 	day;
+	std::string 	day;
 	Time 	start;
 	Time	duration;
 
 public:
-	//constructeur
+	//constructeur - destructeur
 	Timing();
 
 	~Timing();
+
+	//display
+	void display() const;
+
+	
 };
 	
 

@@ -2,15 +2,15 @@
 #include <iostream>
 using namespace std;
 #include "Time.h"
-//#include "Timing.h"
+#include "Timing.h"
 #include "Event.h"
 
 //using namespace planning;
 
 int  Menu();
 void Essai1();
-/*
 void Essai2();
+/*
 void Essai3();
 void Essai4();
 */
@@ -26,8 +26,8 @@ int main(int argc,char* argv[])
     switch(choix)
     {
       case 1 : Essai1(); break;
-      /*
       case 2 : Essai2(); break;
+      /*
       case 3 : Essai3(); break;
       case 4 : Essai4(); break;
       */
@@ -106,10 +106,11 @@ void Essai1()
   }
 }
 
+
   /*******************************************************************************************************/
   /*** Tests de la classe Timing (Agregation par valeur avec un objet Time) ******************************/
   /*******************************************************************************************************/
-/*void Essai2()
+void Essai2()
 {
   cout << endl << "(1) ***** Test du constructeur par defaut de Timing ****************************" << endl;
   {
@@ -117,7 +118,8 @@ void Essai1()
     t.display();
     cout << endl;
   }
-
+}
+/*
   cout << endl << "(2) **** Test des setters/getters **********************************************" << endl;
   {
     Timing t;
