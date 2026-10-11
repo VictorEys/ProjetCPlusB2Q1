@@ -3,6 +3,14 @@
 #include <cstring>
 using namespace std;
 
+const string Timing::MONDAY = "Lundi";
+const string Timing::TUESDAY = "Mardi";
+const string Timing::WEDNESDAY = "Mercredi";
+const string Timing::THURSDAY = "Jeudi";
+const string Timing::FRIDAY = "Vendredi";
+const string Timing::SATURDAY = "Samedi";
+const string Timing::SUNDAY = "Dimanche";
+
 Timing::Timing(){
 	day = "Lundi";
 
@@ -28,7 +36,7 @@ Timing::~Timing(){
 }
 
 void Timing::setDay(string t){
-	if(t == "Lundi" || t == "Mardi" || t == "Mercredi" || t == "Jeudi" || t == "Vendredi" || t == "Samedi" || t == "Dimanche") {
+	if(t == "MONDAY" || t == "TUESDAY" || t == "WEDNESDAY" || t == "THURSDAY" || t == "FRIDAY" || t == "SATURDAY" || t == "SUNDAY") {
         day = t;
     }
 }

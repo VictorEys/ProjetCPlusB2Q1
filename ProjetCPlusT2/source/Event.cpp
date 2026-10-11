@@ -3,18 +3,19 @@
 #include <cstring>
 using namespace std;
 
-
+int Event::currentCode = 1;
   
 Event::Event(){
-	code = 0;
+	code = currentCode++;
 	title = new char[10];
 	strcpy(title, "Sans titre");
 	timing = nullptr;
+
 	cout << "--- constructeur par defaut Event---" << endl;
 }
 
 Event::Event(int c, const char* t){
-	code = c;
+	code = currentCode++;
 	title = new char[strlen(t) + 1];
 	strcpy(title, t);
 	timing = nullptr;
@@ -22,7 +23,7 @@ Event::Event(int c, const char* t){
 }
 
 Event::Event(int c, const char* t, Timing a){
-	code = c;
+	code = currentCode++;
 	title = new char[strlen(t) + 1];
 	strcpy(title, t);
 	timing = new Timing(a);
@@ -31,6 +32,7 @@ Event::Event(int c, const char* t, Timing a){
 
 Event::Event(const Event& event2){
 	code = event2.code;
+	currentCode++;
 	title = new char[strlen(event2.title) + 1];
 	strcpy(title, event2.title);
 	if(event2.timing != nullptr)
@@ -45,6 +47,7 @@ Event::~Event(){
 	cout << "--- Destructeur d'Event ---" << endl;
 	delete[] title;
 	delete timing;
+	currentCode--;
 }
 
 

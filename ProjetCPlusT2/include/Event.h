@@ -9,8 +9,11 @@ private:
   int     code;
   char*   title;
   Timing* timing;
+  
 
 public:
+  static int currentCode;
+
   // Const - Dest Event
   Event();
   Event(int c, const char* t);
@@ -26,6 +29,7 @@ public:
   int getCode() const;
   const char* getTitle() const;
   Timing getTiming() const;
+
 
   // affichage Event
   void display() const;
