@@ -3,36 +3,39 @@
 
 #include "Timing.h"
 
-class Event
-{
-private:
-  int     code;
-  char*   title;
-  Timing* timing;
-  
+namespace planning{
 
-public:
-  static int currentCode;
+  class Event
+  {
+  private:
+    int     code;
+    char*   title;
+    Timing* timing;
+    
 
-  // Const - Dest Event
-  Event();
-  Event(int c, const char* t);
-  Event(int c, const char* t, Timing a);
-  Event(const Event& event2);
-  ~Event();
+  public:
+    static int currentCode;
 
-
-  // Set - Get Event
-  void setCode(int c);
-  void setTitle(const char*t);
-  void setTiming(const Timing& a);
-  int getCode() const;
-  const char* getTitle() const;
-  Timing getTiming() const;
+    // Const - Dest Event
+    Event();
+    Event(int c, const char* t);
+    Event(int c, const char* t, Timing a);
+    Event(const Event& event2);
+    ~Event();
 
 
-  // affichage Event
-  void display() const;
-};
+    // Set - Get Event
+    void setCode(int c);
+    void setTitle(const char*t);
+    void setTiming(const Timing& a);
+    int getCode() const;
+    const char* getTitle() const;
+    Timing getTiming() const;
+
+
+    // affichage Event
+    void display() const;
+  };
+}
 
 #endif
