@@ -9,13 +9,56 @@ Timing::Timing(){
 	cout << "--- constructeur par default Timing ---" << endl;
 }
 
+Timing::Timing(string t, Time a, Time b){
+	day = t;
+	start = a;
+	duration = b;
+	cout << "--- Constructeur d'initialisation Timing ---" << endl;
+}
+
+Timing::Timing(const Timing& Timing2){
+	day = Timing2.day;
+	start = Timing2.start;
+	duration = Timing2.duration;
+	cout << "--- Constructeur de copie Timing ---" << endl;
+}
+
 Timing::~Timing(){
 	cout << "--- Destructeur de Timing ---" << endl;
 }
 
+void Timing::setDay(string t){
+	if(t == "Lundi" || t == "Mardi" || t == "Mercredi" || t == "Jeudi" || t == "Vendredi" || t == "Samedi" || t == "Dimanche") {
+        day = t;
+    }
+}
+
+void Timing::setStart(Time a){
+	start = a;
+}
+
+void Timing::setDuration(Time a){
+	if(a.getHour() + a.getMinute() <= 0) return;
+	duration = a;
+}
+
+const string& Timing::getDay() const{
+	return day;
+}
+
+Time Timing::getStart() const{
+	return start;
+}
+
+Time Timing::getDuration() const{
+	return duration;
+}
+
 void Timing::display() const{
-	cout << "jour : " << day << endl;
+	cout << "Jour : " << day << endl;
+	cout << "Start : ";
 	start.display();
+	cout << "Duration : ";
 	duration.display();
 }
 

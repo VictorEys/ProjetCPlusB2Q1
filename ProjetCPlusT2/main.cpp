@@ -118,15 +118,17 @@ void Essai2()
     t.display();
     cout << endl;
   }
-}
-/*
+
+
   cout << endl << "(2) **** Test des setters/getters **********************************************" << endl;
   {
     Timing t;
     t.setDay("Mardi");
+
     t.setStart(Time(8,20));
     t.setDuration(Time(90));
     t.display();
+
     cout << endl;
     cout << "Jour  : " << t.getDay() << endl;
     cout << "Debut : ";
@@ -136,6 +138,7 @@ void Essai2()
     t.getDuration().display();
     cout << endl;
   }
+
 
   cout << endl << "(3) ***** Test du constructeur d'initialisation de Timing **********************" << endl;
   {

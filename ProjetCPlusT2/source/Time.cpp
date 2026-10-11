@@ -10,12 +10,22 @@ Time::Time(){
 }
 
 Time::Time(int c, int d){
+	if(c < 0)
+		throw invalid_argument("Heure invalide : heure ne peut pas etre negative !");
+
+	if(d < 0 || d >= 60)
+		throw invalid_argument("Minute invalide : minute doit etre entre 0 et 59 !");
+
 	hour = c;
 	minute = d;
+
 	cout << "--- Constructeur d'initialisation Time ---" << endl;
 }
 
 Time::Time(int c){
+	if(c < 0)
+		throw invalid_argument("Durée en minutes ne peut pas être négative !");
+
 	hour = c / 60;
 	minute = c % 60;
 	cout << "--- Constructeur avec seulement minutes ---" << endl;
@@ -50,8 +60,6 @@ int Time::getMinute() const{
 }
 
 void Time::display() const{
-	cout <<"Heure : ";
-
 	if(hour < 10) cout << "0";
 	cout << hour << "h";
 
