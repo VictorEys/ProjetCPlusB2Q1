@@ -10,8 +10,8 @@ using namespace std;
 int  Menu();
 void Essai1();
 void Essai2();
-/*
 void Essai3();
+/*
 void Essai4();
 */
 int main(int argc,char* argv[])
@@ -27,8 +27,8 @@ int main(int argc,char* argv[])
     {
       case 1 : Essai1(); break;
       case 2 : Essai2(); break;
-      /*
       case 3 : Essai3(); break;
+      /*
       case 4 : Essai4(); break;
       */
       default : fini = true ; break;
@@ -173,14 +173,15 @@ void Essai2()
 /*******************************************************************************************************/
 /*** Tests de la classe Event (Agregation par reference d'un objet Timing) *****************************/
 /*******************************************************************************************************/
-/*void Essai3()
+void Essai3()
 {
+  /*
   cout << endl << "(1) ***** Test constructeur par defaut + display *******************************" << endl;
   {
     Event event;
     event.display();
     cout << endl;
-  } 
+  }
 
   cout << endl << "(2) ***** Test des setters et getters ******************************************" << endl;
   {
@@ -204,7 +205,7 @@ void Essai2()
     event.display();
     cout << endl;
   }
-
+*/
   cout << endl << "(4) ***** Test du constructeur de copie ****************************************" << endl;
   {
     Event event1(1,"Labo C++");

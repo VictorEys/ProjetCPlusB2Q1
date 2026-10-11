@@ -7,28 +7,44 @@ using namespace std;
   
 Event::Event(){
 	code = 0;
-	title = new char[21];
+	title = new char[10];
 	strcpy(title, "Sans titre");
-	cout << "--- constructeur par defaut ---" << endl;
+	timing = nullptr;
+	cout << "--- constructeur par defaut Event---" << endl;
 }
 
 Event::Event(int c, const char* t){
 	code = c;
 	title = new char[strlen(t) + 1];
 	strcpy(title, t);
-	cout << "--- Constructeur d'initialisation ---" << endl;
+	timing = nullptr;
+	cout << "--- Constructeur d'initialisation Event---" << endl;
+}
+
+Event::Event(int c, const char* t, Timing a){
+	code = c;
+	title = new char[strlen(t) + 1];
+	strcpy(title, t);
+	timing = new Timing(a);
+	cout << "--- Constructeur d'initialisation Event---" << endl;
 }
 
 Event::Event(const Event& event2){
 	code = event2.code;
 	title = new char[strlen(event2.title) + 1];
 	strcpy(title, event2.title);
-	cout << "--- Constucteur de copie ---" << endl;
+	if(event2.timing != nullptr)
+		timing = new Timing(*event2.timing);
+	else
+		timing = nullptr;
+
+	cout << "--- Constucteur de copie Event---" << endl;
 }
 
 Event::~Event(){
 	cout << "--- Destructeur d'Event ---" << endl;
 	delete[] title;
+	delete timing;
 }
 
 
@@ -47,6 +63,11 @@ void Event::setTitle(const char*t){
 	strcpy(title, t);
 }
 
+void Event::setTiming(const Timing& a){
+	delete timing;
+	timing = new Timing(a);
+}
+
 int Event::getCode() const{
 	return code;
 }
@@ -55,8 +76,20 @@ const char* Event::getTitle() const{
 	return title;
 }
 
+Timing Event::getTiming() const{
+	if(timing != nullptr) return *timing;
+
+	cout << "--- Aucun timing défini ---" << endl;
+	return Timing();
+}
+
 
 void Event::display() const{
 	cout << "Code : " << code << endl;
 	cout << "Title : " << title << endl;
+	cout << "Timing :";
+	if(timing == nullptr) 
+		cout << "---Pas de timing défini---" << endl;
+	else
+		timing->display();
 }
