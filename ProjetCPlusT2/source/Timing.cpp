@@ -43,11 +43,11 @@ namespace planning{
 	    }
 	}
 
-	void Timing::setStart(Time a){
+	void Timing::setStart(const Time& a){
 		start = a;
 	}
 
-	void Timing::setDuration(Time a){
+	void Timing::setDuration(const Time& a){
 		if(a.getHour() + a.getMinute() <= 0) return;
 		duration = a;
 	}
@@ -65,6 +65,7 @@ namespace planning{
 	}
 
 	void Timing::display() const{
+		cout << endl;
 		cout << "Jour : " << day << endl;
 		cout << "Start : ";
 		start.display();

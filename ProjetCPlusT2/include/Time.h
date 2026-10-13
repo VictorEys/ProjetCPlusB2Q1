@@ -1,5 +1,5 @@
-#ifndef Time_H
-#define Time_H
+#ifndef TIME_H
+#define TIME_H
 
 namespace planning{
 

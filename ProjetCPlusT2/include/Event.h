@@ -1,5 +1,5 @@
-#ifndef Event_H
-#define Event_H
+#ifndef EVENT_H
+#define EVENT_H
 
 #include "Timing.h"
 

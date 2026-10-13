@@ -1,5 +1,5 @@
-#ifndef Timing_H
-#define Timing_H
+#ifndef TIMING_H
+#define TIMING_H
 
 #include <string>
 #include "Time.h"
@@ -30,8 +30,8 @@ namespace planning{
 
 		//set - get
 		void setDay(std::string t);
-		void setStart(Time a);
-		void setDuration(Time a);
+		void setStart(const Time& a);
+		void setDuration(const Time& a);
 
 		const std::string& getDay() const;
 		Time getStart() const;

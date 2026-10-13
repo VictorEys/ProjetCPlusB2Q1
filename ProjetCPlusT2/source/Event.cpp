@@ -8,7 +8,7 @@ namespace planning{
 	int Event::currentCode = 1;
 	  
 	Event::Event(){
-		code = currentCode++;
+		code = currentCode;
 		title = new char[10];
 		strcpy(title, "Sans titre");
 		timing = nullptr;
@@ -17,7 +17,7 @@ namespace planning{
 	}
 
 	Event::Event(int c, const char* t){
-		code = currentCode++;
+		code = currentCode;
 		title = new char[strlen(t) + 1];
 		strcpy(title, t);
 		timing = nullptr;
@@ -25,7 +25,7 @@ namespace planning{
 	}
 
 	Event::Event(int c, const char* t, Timing a){
-		code = currentCode++;
+		code = currentCode;
 		title = new char[strlen(t) + 1];
 		strcpy(title, t);
 		timing = new Timing(a);
@@ -33,8 +33,7 @@ namespace planning{
 	}
 
 	Event::Event(const Event& event2){
-		code = event2.code;
-		currentCode++;
+		code = currentCode;
 		title = new char[strlen(event2.title) + 1];
 		strcpy(title, event2.title);
 		if(event2.timing != nullptr)
@@ -49,7 +48,6 @@ namespace planning{
 		cout << "--- Destructeur d'Event ---" << endl;
 		delete[] title;
 		delete timing;
-		currentCode--;
 	}
 
 
@@ -69,7 +67,8 @@ namespace planning{
 	}
 
 	void Event::setTiming(const Timing& a){
-		delete timing;
+		if(timing != nullptr) delete timing;
+		
 		timing = new Timing(a);
 	}
 

@@ -171,7 +171,6 @@ void Essai2()
 /*******************************************************************************************************/
 void Essai3()
 {
-  /*
   cout << endl << "(1) ***** Test constructeur par defaut + display *******************************" << endl;
   {
     Event event;
@@ -201,7 +200,7 @@ void Essai3()
     event.display();
     cout << endl;
   }
-*/
+
   cout << endl << "(4) ***** Test du constructeur de copie ****************************************" << endl;
   {
     Event event1(1,"Labo C++");
