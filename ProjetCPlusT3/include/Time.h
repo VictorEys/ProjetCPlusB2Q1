@@ -5,6 +5,9 @@ namespace planning{
 
 	class Time
 	{
+	friend Time operator+(int minute, const Time& t);
+	friend Time operator-(int minute, const Time& t);
+
 	private:
 		int hour;
 		int minute;
@@ -13,7 +16,7 @@ namespace planning{
 		//constructeur 
 		Time();
 		Time(int c, int d);
-		Time(int c);
+		explicit Time(int c);
 		Time(const Time& Time2);
 		~Time();
 
@@ -26,6 +29,15 @@ namespace planning{
 		//display
 		void display() const;
 
+		//opérateur
+		Time& operator=(const Time& t);
+		Time operator+(int t) const;
+		Time operator+(const Time& t);
+		Time operator-(int t) const;
+		Time operator-(const Time& t);
+		bool operator<(const Time& t);
+		bool operator>(const Time& t);
+		bool operator==(const Time& t);
 	};
 }
 #endif
