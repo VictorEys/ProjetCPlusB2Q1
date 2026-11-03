@@ -106,41 +106,14 @@ namespace planning{
 
 	bool Timing::operator>(const Timing& t) const
 	{
-		int indexDay1 = dayToIndex(day);
-    	int indexDay2 = dayToIndex(t.day);
-
-    	if (indexDay1 > indexDay2) return true;
-    	if (indexDay1 < indexDay2) return false;
-
-    	if (start > t.start) return true;
-    	if (start < t.start) return false;
-
-    	if (duration > t.duration) return true;
-    	if (duration < t.duration) return false;
-
-    	return false;
+    	return t < (*this);
 	}
 
 	bool Timing::operator==(const Timing& t) const
 	{
-		int indexDay1, indexDay2;
-
-		if((indexDay1 = dayToIndex(day)) == (indexDay2 = dayToIndex(t.day)))
-		{
-			if(start == t.start)
-			{
-				if(duration == t.duration)
-				{
-					return true;
-				}
-				else
-					return false;
-			}
-			else
-				return false;
-		}
-		else
-			return false;
+		return (dayToIndex(day) == dayToIndex(t.day) &&
+				(start == t.start) &&
+				(duration == t.duration));
 	}
 }
 

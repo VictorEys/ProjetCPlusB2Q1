@@ -11,6 +11,7 @@ namespace planning{
 	friend Time operator-(int minute, const Time& t);
 	friend std::istream& operator>>(std::istream& is, Time& t);
 	friend std::ostream& operator<<(std::ostream& os, const Time& t);
+
 	private:
 		int hour;
 		int minute;

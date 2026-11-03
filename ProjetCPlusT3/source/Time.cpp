@@ -193,6 +193,7 @@ namespace planning{
 
 	bool Time::operator>(const Time& t) const
 	{
+		/*
 		int totMinutes1 = hour * 60 + minute;
 		int totMinutes2 = t.hour * 60 + t.minute;
 
@@ -200,6 +201,8 @@ namespace planning{
 			return true;
 
 		return false;
+		*/
+		return t < *this;
 	}
 
 	bool Time::operator==(const Time& t) const
@@ -213,48 +216,32 @@ namespace planning{
 		return false;
 	}
 
-	Time& Time::operator++()
+	Time& Time::operator++() 
 	{
-		int totMinutes = hour * 60 + minute;
-		totMinutes += 30;
-
-		hour = totMinutes / 60;
-		minute = totMinutes % 60;
-
-		return (*this);
+		*this = (*this) + 30;
+		return *this;
 	}
 
 	Time Time::operator++(int)
 	{
 		Time tmp(*this);
-		int totMinutes = hour * 60 + minute;
-		totMinutes += 30;
-
-		hour = totMinutes / 60;
-		minute = totMinutes % 60;
+		
+		*this = (*this) + 30;
 
 		return tmp;
 	}
 
 	Time& Time::operator--()
 	{
-		int totMinutes = hour * 60 + minute;
-		totMinutes -= 30;
-
-		hour = totMinutes / 60;
-		minute = totMinutes % 60;
-
-		return (*this);
+		*this = (*this) - 30;
+		return *this;
 	}
 
 	Time Time::operator--(int)
 	{
 		Time tmp(*this);
-		int totMinutes = hour * 60 + minute;
-		totMinutes -= 30;
-
-		hour = totMinutes / 60;
-		minute = totMinutes % 60;
+		
+		*this = (*this) - 30;
 
 		return tmp;
 	}
