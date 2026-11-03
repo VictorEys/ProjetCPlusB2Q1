@@ -13,6 +13,8 @@ namespace planning{
 		Time 	start;
 		Time	duration;
 
+		static int dayToIndex(std::string day);
+
 	public:
 		//constantes statique
 		static const std::string MONDAY;
@@ -39,6 +41,11 @@ namespace planning{
 
 		//display
 		void display() const;
+
+		//opérateur
+		bool operator<(const Timing& t) const;
+		bool operator>(const Timing& t) const;
+		bool operator==(const Timing& t) const;
 	};
 }
 

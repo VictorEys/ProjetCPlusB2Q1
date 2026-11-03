@@ -180,7 +180,7 @@ namespace planning{
 		return resultat;
 	}
 
-	bool Time::operator<(const Time& t)
+	bool Time::operator<(const Time& t) const
 	{
 		int totMinutes1 = hour * 60 + minute;
 		int totMinutes2 = t.hour * 60 + t.minute;
@@ -191,7 +191,7 @@ namespace planning{
 		return false;
 	}
 
-	bool Time::operator>(const Time& t)
+	bool Time::operator>(const Time& t) const
 	{
 		int totMinutes1 = hour * 60 + minute;
 		int totMinutes2 = t.hour * 60 + t.minute;
@@ -202,7 +202,7 @@ namespace planning{
 		return false;
 	}
 
-	bool Time::operator==(const Time& t)
+	bool Time::operator==(const Time& t) const
 	{
 		int totMinutes1 = hour * 60 + minute;
 		int totMinutes2 = t.hour * 60 + t.minute;

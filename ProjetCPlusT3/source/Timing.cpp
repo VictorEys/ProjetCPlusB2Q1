@@ -3,6 +3,8 @@
 #include <cstring>
 using namespace std;
 
+int jourVersIndex(string jour);
+
 namespace planning{
 
 	const string Timing::MONDAY = "Lundi";
@@ -12,6 +14,18 @@ namespace planning{
 	const string Timing::FRIDAY = "Vendredi";
 	const string Timing::SATURDAY = "Samedi";
 	const string Timing::SUNDAY = "Dimanche";
+
+	int Timing::dayToIndex(string day)
+	{
+		if (day == MONDAY) 	return 0;
+		if (day == TUESDAY) 	return 1;
+		if (day == WEDNESDAY) 	return 2;
+		if (day == THURSDAY) 	return 3;
+		if (day == FRIDAY) 	return 4;
+		if (day == SATURDAY) 	return 5;
+		if (day == SUNDAY) 	return 6;
+		return -1;
+	}
 
 	Timing::Timing(){
 		day = "Lundi";
@@ -72,4 +86,61 @@ namespace planning{
 		cout << "Duration : ";
 		duration.display();
 	}
+
+	bool Timing::operator<(const Timing& t) const
+	{
+		int indexDay1 = dayToIndex(day);
+    	int indexDay2 = dayToIndex(t.day);
+
+    	if (indexDay1 < indexDay2) return true;
+    	if (indexDay1 > indexDay2) return false;
+
+    	if (start < t.start) return true;
+    	if (start > t.start) return false;
+
+    	if (duration < t.duration) return true;
+    	if (duration > t.duration) return false;
+
+    	return false;
+	}
+
+	bool Timing::operator>(const Timing& t) const
+	{
+		int indexDay1 = dayToIndex(day);
+    	int indexDay2 = dayToIndex(t.day);
+
+    	if (indexDay1 > indexDay2) return true;
+    	if (indexDay1 < indexDay2) return false;
+
+    	if (start > t.start) return true;
+    	if (start < t.start) return false;
+
+    	if (duration > t.duration) return true;
+    	if (duration < t.duration) return false;
+
+    	return false;
+	}
+
+	bool Timing::operator==(const Timing& t) const
+	{
+		int indexDay1, indexDay2;
+
+		if((indexDay1 = dayToIndex(day)) == (indexDay2 = dayToIndex(t.day)))
+		{
+			if(start == t.start)
+			{
+				if(duration == t.duration)
+				{
+					return true;
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+		}
+		else
+			return false;
+	}
 }
+

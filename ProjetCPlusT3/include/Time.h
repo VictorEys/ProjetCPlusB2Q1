@@ -38,9 +38,9 @@ namespace planning{
 		Time operator+(const Time& t);
 		Time operator-(int t) const;
 		Time operator-(const Time& t);
-		bool operator<(const Time& t);
-		bool operator>(const Time& t);
-		bool operator==(const Time& t);
+		bool operator<(const Time& t) const;
+		bool operator>(const Time& t) const;
+		bool operator==(const Time& t) const; 
 		Time& operator++();		//pré-incrémentatoin
 		Time operator++(int);	//post-incrémentation
 		Time& operator--(); 	//pré-incrémentation
