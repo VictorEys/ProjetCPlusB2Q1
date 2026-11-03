@@ -1,5 +1,7 @@
 #include "Time.h"
 #include<iostream>
+#include<sstream>
+#include<string>
 using namespace std;
 
 namespace planning{
@@ -15,6 +17,38 @@ namespace planning{
 		totMinutes = minute - totMinutes;
 
 		return Time(totMinutes);
+	}
+
+	istream& operator>>(istream& is, Time& t)
+	{
+		string saisie;
+		is >> saisie;
+
+		for(int i = 0; i < saisie.length(); i++)
+		{
+			if(saisie[i] == 'h' || saisie[i] == 'H')
+				saisie[i] = ' ';
+		}
+
+		stringstream ss(saisie);
+		int h, m;
+		ss >> h >> m;
+
+		t.hour = h;
+		t.minute = m;
+
+		return is;
+	}
+
+	ostream& operator<<(ostream& os, const Time& t)
+	{
+		stringstream ss;
+
+		ss << t.hour << "h" << t.minute;
+
+		os << ss.str();
+
+		return os;
 	}
 
 	Time::Time(){
@@ -177,5 +211,51 @@ namespace planning{
 			return true;
 
 		return false;
+	}
+
+	Time& Time::operator++()
+	{
+		int totMinutes = hour * 60 + minute;
+		totMinutes += 30;
+
+		hour = totMinutes / 60;
+		minute = totMinutes % 60;
+
+		return (*this);
+	}
+
+	Time Time::operator++(int)
+	{
+		Time tmp(*this);
+		int totMinutes = hour * 60 + minute;
+		totMinutes += 30;
+
+		hour = totMinutes / 60;
+		minute = totMinutes % 60;
+
+		return tmp;
+	}
+
+	Time& Time::operator--()
+	{
+		int totMinutes = hour * 60 + minute;
+		totMinutes -= 30;
+
+		hour = totMinutes / 60;
+		minute = totMinutes % 60;
+
+		return (*this);
+	}
+
+	Time Time::operator--(int)
+	{
+		Time tmp(*this);
+		int totMinutes = hour * 60 + minute;
+		totMinutes -= 30;
+
+		hour = totMinutes / 60;
+		minute = totMinutes % 60;
+
+		return tmp;
 	}
 }
