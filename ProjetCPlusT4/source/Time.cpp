@@ -193,15 +193,6 @@ namespace planning{
 
 	bool Time::operator>(const Time& t) const
 	{
-		/*
-		int totMinutes1 = hour * 60 + minute;
-		int totMinutes2 = t.hour * 60 + t.minute;
-
-		if(totMinutes1 > totMinutes2)
-			return true;
-
-		return false;
-		*/
 		return t < *this;
 	}
 
