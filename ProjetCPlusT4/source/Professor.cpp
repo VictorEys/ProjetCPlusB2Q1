@@ -14,25 +14,34 @@ Professor::Professor() : Schedulable(){
 	lastName = "---";
 	firstName = "---";
 
+	#ifdef DEBUG
 	cout << "--- constructeur par default Professor ---" << endl;
+	#endif
 }
 
 Professor::Professor (int id, const string& lN, const string& fN) : Schedulable(id){
 	lastName = lN;
 	firstName = fN;
 
+	#ifdef DEBUG
 	cout << "--- constructeur d'initialistion de Professor ---" << endl;
+	#endif
 }
 
 Professor::Professor(const Professor& Professor2) : Schedulable(Professor2.id){
 	lastName = Professor2.lastName;
 	firstName = Professor2.firstName;
 
+	#ifdef DEBUG
 	cout << "--- constructeur de copie de Professor ---" << endl;
+	#endif
 }
 
 Professor::~Professor(){
+
+	#ifdef DEBUG
 	cout << "--- Destructeur de Professor ---" << endl;
+	#endif
 }
 
 void Professor::setLastName(string t){
@@ -56,7 +65,7 @@ string Professor::toString() const{
 	return lastName + " " + firstName;
 }
 
-string Professor::tuple(){
+string Professor::tuple() const{
 	return Schedulable::tuple() + lastName + ";" + firstName;
 }
 

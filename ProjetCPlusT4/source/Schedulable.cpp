@@ -7,17 +7,23 @@ using namespace std;
 Schedulable::Schedulable(){
 	id = 0;
 
+	#ifdef DEBUG
 	cout << "--- constructeur par default Schedulable ---" << endl;
+	#endif
 }
 
 Schedulable::Schedulable(int c){
 	id = c;
 
+	#ifdef DEBUG
 	cout << "--- constructeur d'initialistion de Schedulable ---" << endl;
+	#endif
 }
 
 Schedulable::~Schedulable(){
-	cout << "--- Destructeur de Professor ---" << endl;
+	#ifdef DEBUG
+	cout << "--- Destructeur de Schedulable ---" << endl;
+	#endif
 }
 
 
@@ -30,6 +36,6 @@ int Schedulable::getId() const{
 }
 
 
-string Schedulable::tuple(){
+string Schedulable::tuple() const{
 	return to_string(id) + ";";
 }

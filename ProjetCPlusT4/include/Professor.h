@@ -24,7 +24,7 @@ public:
 	const std::string& getFirstName() const;
 
 	std::string toString() const override;
-	std::string tuple() override;
+	std::string tuple() const override;
 
 	Professor& operator=(const Professor& p);
 };
