@@ -15,7 +15,7 @@ public:
 	void setId(const int c);
 	int getId() const;
 
-	virtual std::string toString() = 0;
+	virtual std::string toString() const = 0;
 	virtual std::string tuple() = 0;
 	
 };

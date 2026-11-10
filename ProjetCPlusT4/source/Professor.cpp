@@ -4,6 +4,12 @@
 
 using namespace std;
 
+ostream& operator<<(ostream& os, const Professor& p){
+	os << p.toString();
+
+	return os;
+}
+
 Professor::Professor() : Schedulable(){
 	lastName = "---";
 	firstName = "---";
@@ -46,7 +52,7 @@ const string& Professor::getFirstName() const{
 }
 
 
-string Professor::toString(){
+string Professor::toString() const{
 	return lastName + " " + firstName;
 }
 
@@ -54,3 +60,10 @@ string Professor::tuple(){
 	return Schedulable::tuple() + lastName + ";" + firstName;
 }
 
+Professor& Professor::operator=(const Professor& p){
+	id = p.id;
+	lastName = p.lastName;
+	firstName = p.firstName;
+
+	return (*this);
+}

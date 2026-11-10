@@ -31,5 +31,5 @@ int Schedulable::getId() const{
 
 
 string Schedulable::tuple(){
-	return id + ";";
+	return to_string(id) + ";";
 }

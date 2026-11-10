@@ -5,6 +5,9 @@
 #include "Schedulable.h"
 
 class Professor : public Schedulable{
+
+friend std::ostream& operator<<(std::ostream& os, const Professor& p);
+
 private:
 	std::string	lastName;
 	std::string firstName;
@@ -20,8 +23,10 @@ public:
 	const std::string& getLastName() const;
 	const std::string& getFirstName() const;
 
-	std::string toString()override;
+	std::string toString() const override;
 	std::string tuple() override;
+
+	Professor& operator=(const Professor& p);
 };
 
 #endif
