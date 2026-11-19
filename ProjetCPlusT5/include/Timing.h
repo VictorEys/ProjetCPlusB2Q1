@@ -1,0 +1,52 @@
+#ifndef TIMING_H
+#define TIMING_H
+
+#include <string>
+#include "Time.h"
+
+namespace planning{
+
+	class Timing
+	{
+	private:
+		std::string 	day;
+		Time 	start;
+		Time	duration;
+
+		static int dayToIndex(std::string day);
+
+	public:
+		//constantes statique
+		static const std::string MONDAY;
+		static const std::string TUESDAY;
+		static const std::string WEDNESDAY;
+		static const std::string THURSDAY;
+		static const std::string FRIDAY;
+		static const std::string SATURDAY;
+		static const std::string SUNDAY;
+		//constructeur - destructeur
+		Timing();
+		Timing(std::string t, Time a, Time b);
+		Timing(const Timing& Timing2);
+		~Timing();
+
+		//set - get
+		void setDay(std::string t);
+		void setStart(const Time& a);
+		void setDuration(const Time& a);
+
+		const std::string& getDay() const;
+		Time getStart() const;
+		Time getDuration() const;
+
+		//display
+		void display() const;
+
+		//opérateur
+		bool operator<(const Timing& t) const;
+		bool operator>(const Timing& t) const;
+		bool operator==(const Timing& t) const;
+	};
+}
+
+#endif
