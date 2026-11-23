@@ -13,7 +13,9 @@ namespace planning{
 		strcpy(title, "Sans titre");
 		timing = nullptr;
 
+		#ifdef DEBUG
 		cout << "--- constructeur par defaut Event---" << endl;
+		#endif
 	}
 
 	Event::Event(int c, const char* t){
@@ -21,7 +23,10 @@ namespace planning{
 		title = new char[strlen(t) + 1];
 		strcpy(title, t);
 		timing = nullptr;
+
+		#ifdef DEBUG
 		cout << "--- Constructeur d'initialisation Event---" << endl;
+		#endif
 	}
 
 	Event::Event(int c, const char* t, Timing a){
@@ -29,7 +34,10 @@ namespace planning{
 		title = new char[strlen(t) + 1];
 		strcpy(title, t);
 		timing = new Timing(a);
+
+		#ifdef DEBUG
 		cout << "--- Constructeur d'initialisation Event---" << endl;
+		#endif
 	}
 
 	Event::Event(const Event& event2){
@@ -41,11 +49,15 @@ namespace planning{
 		else
 			timing = nullptr;
 
+		#ifdef DEBUG
 		cout << "--- Constucteur de copie Event---" << endl;
+		#endif
 	}
 
 	Event::~Event(){
+		#ifdef DEBUG
 		cout << "--- Destructeur d'Event ---" << endl;
+		#endif
 		delete[] title;
 		delete timing;
 	}

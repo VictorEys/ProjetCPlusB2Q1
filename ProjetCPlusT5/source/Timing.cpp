@@ -30,25 +30,35 @@ namespace planning{
 	Timing::Timing(){
 		day = "Lundi";
 
+		#ifdef DEBUG
 		cout << "--- constructeur par default Timing ---" << endl;
+		#endif
 	}
 
 	Timing::Timing(string t, Time a, Time b){
 		day = t;
 		start = a;
 		duration = b;
+
+		#ifdef DEBUG
 		cout << "--- Constructeur d'initialisation Timing ---" << endl;
+		#endif
 	}
 
 	Timing::Timing(const Timing& Timing2){
 		day = Timing2.day;
 		start = Timing2.start;
 		duration = Timing2.duration;
+
+		#ifdef DEBUG
 		cout << "--- Constructeur de copie Timing ---" << endl;
+		#endif
 	}
 
 	Timing::~Timing(){
+		#ifdef DEBUG
 		cout << "--- Destructeur de Timing ---" << endl;
+		#endif
 	}
 
 	void Timing::setDay(string t){

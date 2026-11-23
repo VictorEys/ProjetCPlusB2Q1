@@ -54,7 +54,10 @@ namespace planning{
 	Time::Time(){
 		hour = 0;
 		minute = 0;
+
+		#ifdef DEBUG
 		cout << "--- Constructeur par défaut Time ---" << endl;
+		#endif
 	}
 
 	Time::Time(int c, int d){
@@ -67,7 +70,9 @@ namespace planning{
 		hour = c;
 		minute = d;
 
+		#ifdef DEBUG
 		cout << "--- Constructeur d'initialisation Time ---" << endl;
+		#endif
 	}
 
 	Time::Time(int c){
@@ -76,17 +81,25 @@ namespace planning{
 
 		hour = c / 60;
 		minute = c % 60;
+
+		#ifdef DEBUG
 		cout << "--- Constructeur avec seulement minutes ---" << endl;
+		#endif
 	}
 
 	Time::Time(const Time& Time2){
 		hour = Time2.hour;
 		minute = Time2.minute;
+
+		#ifdef DEBUG
 		cout << "--- Constructeur de copie Time ---" << endl;
+		#endif
 	}
 
 	Time::~Time(){
+		#ifdef DEBUG
 		cout << "--- Destructeur de Time ---" << endl;
+		#endif
 	}
 
 	void Time::setHour(int c){
