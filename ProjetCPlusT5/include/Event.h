@@ -2,6 +2,7 @@
 #define EVENT_H
 
 #include "Timing.h"
+#include "TimingException.h"
 
 namespace planning{
 

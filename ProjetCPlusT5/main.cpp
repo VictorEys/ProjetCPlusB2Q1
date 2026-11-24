@@ -9,7 +9,7 @@ using namespace planning;
 
 int  Menu();
 void Essai1();
-/*void Essai2();
+void Essai2();
 void Essai3();
 void Essai4();
 void Essai5();
@@ -18,7 +18,7 @@ void Essai7();
 void Essai8();
 void Essai9();
 void Essai10();
-void Essai11();*/
+void Essai11();
 
 int main(int argc,char* argv[])
 {
@@ -32,7 +32,7 @@ int main(int argc,char* argv[])
     switch(choix)
     {
       case 1 : Essai1(); break;
-      /*case 2 : Essai2(); break;
+      case 2 : Essai2(); break;
       case 3 : Essai3(); break;
       case 4 : Essai4(); break;
       case 5 : Essai5(); break;
@@ -41,7 +41,7 @@ int main(int argc,char* argv[])
       case 8 : Essai8(); break;
       case 9 : Essai9(); break;
       case 10 : Essai10(); break;
-      case 11 : Essai11(); break;*/
+      case 11 : Essai11(); break;
       default : fini = true ; break;
     }
   }
@@ -116,7 +116,7 @@ void Essai1()
   }
   catch(TimeException tE)
   {
-    cout << tE.getMessage() << endl;
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
   }
   
   
@@ -124,14 +124,14 @@ void Essai1()
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai2()
 {
   cout << "----- 2. Test de l'operateur (Time + int) de la classe Time --------" << endl;
   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
-  // ...
+  try
   {
     Time h(15,30);
     cout << "h = Time(15,30)" << endl;
@@ -140,13 +140,16 @@ void Essai2()
     h = h + duration;
     cout << "Apres addition (h = h + duration) --> " << h << endl << endl; 
   }
-  // ...
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
+  }
   
   cout << endl;
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai3()
 {
   cout << "----- 3. Test de l'operateur (int + Time) de la classe Time --------" << endl;
@@ -154,6 +157,7 @@ void Essai3()
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
   // ...
+  try
   {
     Time h(15,30);
     cout << "h = Time(15,30)" << endl;
@@ -162,13 +166,17 @@ void Essai3()
     h = duration + h;
     cout << "Apres addition (h = duree + h) --> " << h << endl << endl; 
   }
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
+  }
   // ...
   
   cout << endl;
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai4()
 {
   cout << "----- 4. Test de l'operateur (Time - int) de la classe Time --------" << endl;
@@ -176,6 +184,7 @@ void Essai4()
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
   // ...
+  try
   {
     Time h(1,30);
     cout << "h = Time(1,30)" << endl;
@@ -184,20 +193,24 @@ void Essai4()
     h = h - duration;
     cout << "Apres soustraction (h = h - duree) --> " << h << endl << endl; 
   }
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
+  }
   // ...
   
   cout << endl;
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai5()
 {
   cout << "----- 5. Test de l'operateur (int - Time) de la classe Time --------" << endl;
   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
-  // ...
+  try
   {
     Time h(1,30);
     cout << "h = Time(1,30)" << endl;
@@ -206,20 +219,23 @@ void Essai5()
     h = duration - h;
     cout << "Apres soustraction (h = duree - h) --> " << h << endl << endl; 
   }
-  // ...
-  
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
+  }
+
   cout << endl;
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai6()
 {
   cout << "----- 6. Test de l'operateur (Time + Time) de la classe Time --------" << endl;
   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
-  // ...
+  try
   {
     Time h1(22,30);
     cout << "h1 = Time(22,30)" << endl;
@@ -230,20 +246,23 @@ void Essai6()
     h1 = h1 + d;
     cout << "Apres addtion (h1 = h1 + d) --> " << h1 << endl << endl; 
   }
-  // ...
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
+  }
   
   cout << endl;
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai7()
 {
   cout << "----- 7. Test de l'operateur (Time - Time) de la classe Time --------" << endl;
   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
-  // ...
+  try
   {
     Time d(120);
     cout << "d = " << d << endl;
@@ -252,20 +271,23 @@ void Essai7()
     h1 = h1 - d;
     cout << "Apres soustraction (h1 = h1 - d) --> " << h1 << endl << endl; 
   }
-  // ...
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
+  }
   
   cout << endl;
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai8()
 {
   cout << "----- 8. Test de l'operateur ++ de la classe Time --------" << endl;
   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
-  // ...
+  try
   {
     Time h;
     cout << "Entrez l'heure h = "; cin >> h;
@@ -273,20 +295,23 @@ void Essai8()
     ++h;
     cout << "Apres incrementation (h++) --> " << h << endl << endl; 
   }
-  // ...
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
+  }
   
   cout << endl;
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai9()
 {
   cout << "----- 9. Test de l'operateur -- de la classe Time --------" << endl;
   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
-  // ...
+  try
   {
     Time h;
     cout << "Entrez l'heure h = "; cin >> h;
@@ -294,41 +319,47 @@ void Essai9()
     --h;
     cout << "Apres decrementation (h--) --> " << h << endl << endl; 
   }
-  // ...
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
+  }
   
   cout << endl;
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai10()
 {
   cout << "----- 10. Test de la methode setDay() de la classe Timing --------" << endl;
   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
-  // ...
+  try
   {
     Timing t;
     string day;
     cout << "Entrez le jour = ";
     getline(cin,day);
     t.setDay(day);
-    t.display();
+    t.display(cout);
   }
-  // ...
+  catch(TimingException tgE)
+  {
+    cout << tgE.getMessage() << " code : " << tgE.getCode() << endl;
+  }
   
   cout << endl;
 }
 
 /**********************************************************************************************/
-/*
+
 void Essai11()
 {
   cout << "----- 11. Gestion de plusieurs exceptions simultanement ---" << endl;
   // A COMPLETER : Traitez TOUTES les exceptions susceptible d'etre lancee par le bloc de code suivant (try...catch)
 
-  // ...
+  try
   {
     Timing t;
     string day;
@@ -346,7 +377,7 @@ void Essai11()
     cin.ignore();
     t.setDuration(Time(d));
     cout << endl << "Timing encode : ";
-    t.display();
+    t.display(cout);
     cout << endl;
     Event e(1,"Theorie C++");
     cout << "Voici un Event non planifie : ";
@@ -357,9 +388,16 @@ void Essai11()
     cin.ignore();
     if (ch == 'o') e.setTiming(t);
     cout << "Voici le Timing de l'Event planifie : ";
-    e.getTiming().display();  // !!!
+    e.getTiming().display(cout);  // !!!
   }
-  // ...
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << " code : " << tE.getCode() << endl;
+  }
+  catch(TimingException tgE)
+  {
+    cout << tgE.getMessage() << " code : " << tgE.getCode() << endl;
+  }
 }
-*/
+
 

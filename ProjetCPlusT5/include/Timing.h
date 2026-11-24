@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Time.h"
+#include "TimingException.h"
 
 namespace planning{
 

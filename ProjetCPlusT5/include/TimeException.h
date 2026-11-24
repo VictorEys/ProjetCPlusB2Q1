@@ -19,7 +19,7 @@ namespace planning{
 		TimeException(const TimeException& tE2);
 		~TimeException();
 
-		int getcode() const;
+		int getCode() const;
 	};
 }
 #endif

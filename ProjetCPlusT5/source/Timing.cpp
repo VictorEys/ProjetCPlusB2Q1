@@ -36,7 +36,8 @@ namespace planning{
 	}
 
 	Timing::Timing(string t, Time a, Time b){
-		day = t;
+		//day = t;
+		setDay(t);
 		start = a;
 		duration = b;
 
@@ -62,9 +63,11 @@ namespace planning{
 	}
 
 	void Timing::setDay(string t){
-		if(t == "MONDAY" || t == "TUESDAY" || t == "WEDNESDAY" || t == "THURSDAY" || t == "FRIDAY" || t == "SATURDAY" || t == "SUNDAY") {
+		if(t == MONDAY || t == TUESDAY || t == WEDNESDAY || t == THURSDAY || t == FRIDAY || t == SATURDAY || t == SUNDAY){
 	        day = t;
 	    }
+	    else
+	    	throw TimingException("Jour invalide", TimingException::INVALID_DAY);
 	}
 
 	void Timing::setStart(const Time& a){

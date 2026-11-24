@@ -18,6 +18,9 @@ namespace planning{
 		int totMinutes = t.hour * 60 + t.minute;
 		totMinutes = minute - totMinutes;
 
+		if(totMinutes < 0)
+			throw TimeException("Heure ne peut pas être plus petit que 0", TimeException::OVERFLOW);
+
 		return Time(totMinutes);
 	}
 
@@ -154,8 +157,7 @@ namespace planning{
 		resultat.minute = resultat.minute % 60;
 
 		if(resultat.hour > 23)
-			resultat.hour = resultat.hour % 24;
-
+			throw TimeException("Heure ne peut pas être plus grand que 23", TimeException::OVERFLOW);
 		return resultat;
 	}
 
@@ -169,7 +171,8 @@ namespace planning{
 		resultat.minute = resultat.minute % 60;
 
 		if(resultat.hour > 23)
-			resultat.hour = resultat.hour % 24;
+			throw TimeException("Heure ne peut pas être plus grand que 23", TimeException::OVERFLOW);
+
 
 		return resultat;
 	}
@@ -182,6 +185,9 @@ namespace planning{
 		totMinutes = hour * 60 + minute;
 		totMinutes -= t;
 
+		if(totMinutes < 0)
+			throw TimeException("Heure ne peut pas être plus petit que 0", TimeException::OVERFLOW);
+
 		resultat.hour = totMinutes / 60;
 		resultat.minute = totMinutes % 60;
 		
@@ -192,6 +198,10 @@ namespace planning{
 	{
 		Time resultat;
 		int totMinutes = (hour * 60 + minute) - (t.hour * 60 + t.minute);
+
+		if(totMinutes < 0)
+			if(totMinutes < 0)
+			throw TimeException("Heure ne peut pas être plus petit que 0", TimeException::OVERFLOW);
 
 		resultat.hour = totMinutes / 60;
 		resultat.minute = totMinutes % 60;

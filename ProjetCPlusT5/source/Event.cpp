@@ -95,8 +95,7 @@ namespace planning{
 	Timing Event::getTiming() const{
 		if(timing != nullptr) return *timing;
 
-		cout << "--- Aucun timing défini ---" << endl;
-		return Timing();
+		throw TimingException("Aucun Timing défini pour cet Event", TimingException::NO_TIMING);
 	}
 
 

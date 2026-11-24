@@ -36,7 +36,7 @@ namespace planning{
 		#endif
 	}
 
-	int TimeException::getcode() const{
+	int TimeException::getCode() const{
 		return code;
 	}
 }
