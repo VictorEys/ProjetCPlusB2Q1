@@ -399,5 +399,3 @@ void Essai11()
     cout << tgE.getMessage() << " code : " << tgE.getCode() << endl;
   }
 }
-
-
