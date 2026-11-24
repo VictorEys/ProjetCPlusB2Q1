@@ -41,8 +41,8 @@ int main(int argc,char* argv[])
       case 8 : Essai8(); break;
       case 9 : Essai9(); break;
       case 10 : Essai10(); break;
-      case 11 : Essai11(); break;
-      default : fini = true ; break;*/
+      case 11 : Essai11(); break;*/
+      default : fini = true ; break;
     }
   }
 
@@ -89,7 +89,7 @@ void Essai1()
   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
   // en particulier : afficher le message de l'exception lancee et le code de l'erreur
 
-  // ...
+  try
   {
     int hour,minute;
     cout << "Entrez l'heure h1 :" << endl;
@@ -114,7 +114,11 @@ void Essai1()
     Time d1(minutes); // !!!
     cout << "--> d1 = " << d1 << endl << endl;    
   }
-  // ...
+  catch(TimeException tE)
+  {
+    cout << tE.getMessage() << endl;
+  }
+  
   
   cout << endl;
 }

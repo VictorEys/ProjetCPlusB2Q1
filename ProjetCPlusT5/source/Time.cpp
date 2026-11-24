@@ -1,7 +1,9 @@
-#include "Time.h"
 #include<iostream>
 #include<sstream>
 #include<string>
+
+#include "Time.h"
+
 using namespace std;
 
 namespace planning{
@@ -42,11 +44,13 @@ namespace planning{
 
 	ostream& operator<<(ostream& os, const Time& t)
 	{
-		stringstream ss;
+		/*stringstream ss;
 
 		ss << t.hour << "h" << t.minute;
 
-		os << ss.str();
+		os << ss.str();*/
+
+		t.display(os);
 
 		return os;
 	}
@@ -61,11 +65,11 @@ namespace planning{
 	}
 
 	Time::Time(int c, int d){
-		if(c < 0)
-			throw invalid_argument("Heure invalide : heure ne peut pas etre negative !");
+		if(c < 0 || c > 23)
+			throw TimeException("Heure invalide : heure doit être entre 0 et 23", TimeException::INVALID_HOUR);
 
 		if(d < 0 || d >= 60)
-			throw invalid_argument("Minute invalide : minute doit etre entre 0 et 59 !");
+			throw TimeException("Minute invalide : minute doit être entre 0 et 59 !", TimeException::INVALID_MINUTE);
 
 		hour = c;
 		minute = d;
@@ -77,7 +81,7 @@ namespace planning{
 
 	Time::Time(int c){
 		if(c < 0)
-			throw invalid_argument("Durée en minutes ne peut pas être négative !");
+			throw TimeException("Durée en minutes ne peut pas être négative !", TimeException::INVALID_MINUTE);
 
 		hour = c / 60;
 		minute = c % 60;
@@ -103,12 +107,14 @@ namespace planning{
 	}
 
 	void Time::setHour(int c){
-		if(c < 0 || c > 23) return;
+		if(c < 0 || c > 23)
+			throw TimeException("Heure invalide : heure doit être entre 0 et 23", TimeException::INVALID_HOUR);
 		hour = c;
 	}
 
 	void Time::setMinute(int c){
-		if(c < 0 || c > 59) return;
+		if(c < 0 || c > 59)
+			throw TimeException("Minute invalide : minute doit être entre 0 et 59 !", TimeException::INVALID_MINUTE);
 		minute = c;
 	}
 
@@ -120,12 +126,12 @@ namespace planning{
 		return minute;
 	}
 
-	void Time::display() const{
-		if(hour < 10) cout << "0";
-		cout << hour << "h";
+	void Time::display(ostream& os) const{
+		if(hour < 10) os << "0";
+		os << hour << "h";
 
-		if(minute < 10) cout << "0";
-		cout << minute << endl;
+		if(minute < 10) os << "0";
+		os << minute << endl;
 	}
 
 	Time& Time::operator=(const Time& t)

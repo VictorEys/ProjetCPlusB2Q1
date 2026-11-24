@@ -88,13 +88,13 @@ namespace planning{
 		return duration;
 	}
 
-	void Timing::display() const{
-		cout << endl;
-		cout << "Jour : " << day << endl;
-		cout << "Start : ";
-		start.display();
-		cout << "Duration : ";
-		duration.display();
+	void Timing::display(ostream& os) const{
+		os << endl;
+		os << "Jour : " << day << endl;
+		os << "Start : ";
+		start.display(os);
+		os << "Duration : ";
+		duration.display(os);
 	}
 
 	bool Timing::operator<(const Timing& t) const

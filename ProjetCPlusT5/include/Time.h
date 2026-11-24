@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+#include "TimeException.h"
+
 namespace planning{
 
 	class Time
@@ -19,19 +21,19 @@ namespace planning{
 	public:
 		//constructeur 
 		Time();
-		Time(int c, int d);
-		explicit Time(int c);
+		Time(int c, int d); //throw(TimeException);
+		explicit Time(int c); //throw(TimeException);
 		Time(const Time& Time2);
 		~Time();
 
 		//set - get
-		void setHour(int c);
+		void setHour(int c); //throw(TimeException);
 		void setMinute(int c);
 		int getHour() const;
 		int getMinute() const;
 
 		//display
-		void display() const;
+		void display(std::ostream& os) const;
 
 		//opérateur
 		Time& operator=(const Time& t);

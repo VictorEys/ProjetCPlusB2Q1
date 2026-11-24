@@ -40,7 +40,7 @@ namespace planning{
 		Time getDuration() const;
 
 		//display
-		void display() const;
+		void display(std::ostream& os) const;
 
 		//opérateur
 		bool operator<(const Timing& t) const;

@@ -107,6 +107,6 @@ namespace planning{
 		if(timing == nullptr) 
 			cout << "---Pas de timing défini---" << endl;
 		else
-			timing->display();
+			timing->display(cout);
 	}
 }
